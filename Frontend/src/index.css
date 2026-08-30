@@ -151,3 +151,11 @@ input, textarea, select {
 .filtro { display: flex; gap: 8px; margin-bottom: 16px; justify-content: center; }
 .filtro-btn { background: transparent; border: 1px solid var(--seagrass); }
 .filtro-btn.activo { background: var(--seagrass); }
+
+.form-acciones { display: flex; gap: 10px; }
+.btn-editar { background: var(--yellow-green); color: var(--charcoal); }
+.btn-editar:hover { background: #b0c454; }
+.btn-cancelar { background: #6b7280; }
+.btn-cancelar:hover { background: #565e6b; }
+
+.tarea-acciones { display: flex; gap: 16px; flex-wrap: wrap; }

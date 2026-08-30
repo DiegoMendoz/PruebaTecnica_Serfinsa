@@ -8,6 +8,7 @@ export default function App() {
   const [tareas, setTareas] = useState([]);
   const [error, setError] = useState(null);
   const [filtro, setFiltro] = useState("todas");
+  const [tareaEditar, setTareaEditar] = useState(null);
 
   const cargarTareas = async () => {
     try {
@@ -21,6 +22,11 @@ export default function App() {
   useEffect(() => {
     cargarTareas();
   }, [filtro]);
+
+  const handleGuardada = () => {
+    setTareaEditar(null);
+    cargarTareas();
+  };
 
   const handleToggle = async (id) => {
     await cambiarEstado(id);
@@ -36,9 +42,9 @@ export default function App() {
     <div className="container">
       <h1>Gestor de Tareas — Serfinsa</h1>
       {error && <p style={{ color: "#ffb3b3" }}>Error: {error}. ¿Está corriendo el backend?</p>}
-      <TareaForm onTareaCreada={cargarTareas} />
+      <TareaForm onGuardada={handleGuardada} tareaEditar={tareaEditar} onCancelar={() => setTareaEditar(null)} />
       <Filtro filtro={filtro} onFiltrar={setFiltro} />
-      <TareaList tareas={tareas} onToggle={handleToggle} onEliminar={handleEliminar} />
+      <TareaList tareas={tareas} onToggle={handleToggle} onEliminar={handleEliminar} onEditar={setTareaEditar} />
     </div>
   );
 }
