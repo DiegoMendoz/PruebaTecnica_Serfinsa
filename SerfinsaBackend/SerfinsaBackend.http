@@ -15,7 +15,7 @@ Content-Type: application/json
 
 ###
 
-@id=1
+@id=2
 GET {{SerfinsaBackend_HostAddress}}/api/Tareas/{{id}}
 
 ###
@@ -43,4 +43,7 @@ Content-Type: application/json
   "prioridad": "Media",
   "completada": false
 }
+###
+### Eliminar la tarea 1 pero estos son autoincrementales y no se reutilizan tras un borrado
+DELETE {{SerfinsaBackend_HostAddress}}/api/tareas/1
 ###

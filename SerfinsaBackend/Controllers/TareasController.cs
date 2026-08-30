@@ -48,7 +48,13 @@ public class TareasController : ControllerBase
         var tarea = await _service.ActualizarAsync(id, dto);
         return tarea is null ? NotFound() : Ok(tarea);
     }
-
+    // DELETE /api/tareas/5  → eliminar una tarea
+    [HttpDelete("{id:int}")]
+    public async Task<IActionResult> Eliminar(int id)
+    {
+        var ok = await _service.EliminarAsync(id);
+        return ok ? NoContent() : NotFound();
+    }
 
 
 
