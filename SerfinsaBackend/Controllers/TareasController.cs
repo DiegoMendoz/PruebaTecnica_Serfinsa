@@ -1,0 +1,30 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using SerfinsaBackend.Dtos;
+using SerfinsaBackend.Services;
+
+namespace SerfinsaBackend.Controllers;
+
+[ApiController]
+[Route("api/[controller]")]
+public class TareasController : ControllerBase
+{
+    private readonly ItareaService _service;
+
+    public TareasController(ItareaService service) => _service = service;
+
+    // POST /api/tareas  → registrar una tarea nueva
+    [HttpPost]
+    public async Task<ActionResult<TareaDto>> Crear(CrearTareaDto dto)
+    {
+        var tarea = await _service.CrearAsync(dto);
+        return CreatedAtAction(nameof(Detalle), new { id = tarea.Id }, tarea);
+    }
+
+    // GET /api/tareas/5  → consultar el detalle de una tarea
+    [HttpGet("{id:int}")]
+    public async Task<ActionResult<TareaDto>> Detalle(int id)
+    {
+        var tarea = await _service.ObtenerPorIdAsync(id);
+        return tarea is null ? NotFound() : Ok(tarea);
+    }
+}

@@ -1,6 +1,24 @@
-@SerfinsaBackend_HostAddress = http://localhost:5086
+@SerfinsaBackend_HostAddress = https://localhost:7288
 
 GET {{SerfinsaBackend_HostAddress}}/weatherforecast/
 Accept: application/json
+
+###
+
+POST {{SerfinsaBackend_HostAddress}}/api/tareas
+Content-Type: application/json
+
+{
+  "titulo": "Preparar tareas de la universidad",
+  "descripcion": "Concluir con las tareas que hacen falta",
+  "prioridad": "Alta",
+  "completada": false,
+  "fechaCreacion": "2026-08-30T..."
+}
+
+###
+
+@id=0
+GET {{SerfinsaBackend_HostAddress}}/api/Tareas/{{id}}
 
 ###
