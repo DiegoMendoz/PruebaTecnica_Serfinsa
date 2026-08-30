@@ -30,7 +30,17 @@ GET {{SerfinsaBackend_HostAddress}}/api/tareas?estado=pendientes
 GET {{SerfinsaBackend_HostAddress}}/api/tareas?estado=completadas
 ###
 
-@valor
+@valor=1
 PATCH {{SerfinsaBackend_HostAddress}}/api/Tareas/{{valor}}/estado
 
+###
+PUT {{SerfinsaBackend_HostAddress}}/api/tareas/1
+Content-Type: application/json
+
+{
+  "titulo": "Tareas de la universidad (actualizado)",
+  "descripcion": "Terminar y revisar antes de entregar",
+  "prioridad": "Media",
+  "completada": false
+}
 ###

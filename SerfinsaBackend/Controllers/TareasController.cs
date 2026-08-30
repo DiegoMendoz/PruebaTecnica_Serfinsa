@@ -41,6 +41,17 @@ public class TareasController : ControllerBase
         return tarea is null ? NotFound() : Ok(tarea);
     }
 
+    // PUT /api/tareas/5  -> modificar cualquier dato de la tarea
+    [HttpPut("{id:int}")]
+    public async Task<ActionResult<TareaDto>> Actualizar(int id, ActualizarTareaDto dto)
+    {
+        var tarea = await _service.ActualizarAsync(id, dto);
+        return tarea is null ? NotFound() : Ok(tarea);
+    }
+
+
+
+
 
 
 }
