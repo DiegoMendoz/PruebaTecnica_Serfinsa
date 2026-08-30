@@ -1,4 +1,7 @@
-﻿namespace SerfinsaBackend.Dtos
+﻿using SerfinsaBackend.Models;
+using System.ComponentModel.DataAnnotations;
+
+namespace SerfinsaBackend.Dtos
 {
     public class ActualizarTareaDto
     {
