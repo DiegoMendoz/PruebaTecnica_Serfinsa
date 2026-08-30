@@ -112,3 +112,13 @@ input, textarea, select {
   color: var(--charcoal);
   font-size: 0.95rem;
 }
+/* Color por prioridad (borde izquierdo) — semáforo */
+.tarea-item.prioridad-Alta  { border-left-color: #E5484D; }              /* rojo */
+.tarea-item.prioridad-Media { border-left-color: var(--yellow-green); }  /* amarillo-verde */
+.tarea-item.prioridad-Baja  { border-left-color: var(--seagrass); } 
+
+/* Etiqueta de prioridad según nivel */
+.badge-prioridad { color: #fff; }
+.prioridad-Alta  .badge-prioridad { background: #E5484D; color: #fff; }
+.prioridad-Media .badge-prioridad { background: var(--yellow-green); color: var(--charcoal); }
+.prioridad-Baja  .badge-prioridad { background: var(--seagrass); color: #fff; }
