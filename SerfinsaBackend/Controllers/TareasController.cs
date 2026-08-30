@@ -20,6 +20,11 @@ public class TareasController : ControllerBase
         return CreatedAtAction(nameof(Detalle), new { id = tarea.Id }, tarea);
     }
 
+    // GET /api/tareas?estado=todas|pendientes|completadas
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<TareaDto>>> Listar([FromQuery] string estado = "todas")
+        => Ok(await _service.ListarAsync(estado));
+
     // GET /api/tareas/5  → consultar el detalle de una tarea
     [HttpGet("{id:int}")]
     public async Task<ActionResult<TareaDto>> Detalle(int id)
@@ -27,4 +32,7 @@ public class TareasController : ControllerBase
         var tarea = await _service.ObtenerPorIdAsync(id);
         return tarea is null ? NotFound() : Ok(tarea);
     }
+
+
+
 }

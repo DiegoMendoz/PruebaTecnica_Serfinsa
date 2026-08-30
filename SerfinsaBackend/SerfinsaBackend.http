@@ -1,8 +1,5 @@
 @SerfinsaBackend_HostAddress = https://localhost:7288
 
-GET {{SerfinsaBackend_HostAddress}}/weatherforecast/
-Accept: application/json
-
 ###
 
 POST {{SerfinsaBackend_HostAddress}}/api/tareas
@@ -18,7 +15,16 @@ Content-Type: application/json
 
 ###
 
-@id=0
+@id=1
 GET {{SerfinsaBackend_HostAddress}}/api/Tareas/{{id}}
 
 ###
+
+GET {{SerfinsaBackend_HostAddress}}/api/tareas
+
+###
+GET {{SerfinsaBackend_HostAddress}}/api/tareas?estado=pendientes
+
+###
+
+GET {{SerfinsaBackend_HostAddress}}/api/tareas?estado=completadas
