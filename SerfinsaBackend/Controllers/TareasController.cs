@@ -12,7 +12,7 @@ public class TareasController : ControllerBase
 
     public TareasController(ItareaService service) => _service = service;
 
-    // POST /api/tareas  → registrar una tarea nueva
+    // POST /api/tareas  -> registrar una tarea nueva
     [HttpPost]
     public async Task<ActionResult<TareaDto>> Crear(CrearTareaDto dto)
     {
@@ -25,11 +25,19 @@ public class TareasController : ControllerBase
     public async Task<ActionResult<IEnumerable<TareaDto>>> Listar([FromQuery] string estado = "todas")
         => Ok(await _service.ListarAsync(estado));
 
-    // GET /api/tareas/5  → consultar el detalle de una tarea
+    // GET /api/tareas/5  -> consultar el detalle de una tarea
     [HttpGet("{id:int}")]
     public async Task<ActionResult<TareaDto>> Detalle(int id)
     {
         var tarea = await _service.ObtenerPorIdAsync(id);
+        return tarea is null ? NotFound() : Ok(tarea);
+    }
+    //nueva http request en ves de put 
+    // PATCH /api/tareas/5/estado  -> alternar completada/pendiente
+    [HttpPatch("{id:int}/estado")]
+    public async Task<ActionResult<TareaDto>> CambiarEstado(int id)
+    {
+        var tarea = await _service.CambiarEstadoAsync(id);
         return tarea is null ? NotFound() : Ok(tarea);
     }
 

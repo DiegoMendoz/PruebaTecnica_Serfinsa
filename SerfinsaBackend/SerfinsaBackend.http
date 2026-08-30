@@ -28,3 +28,9 @@ GET {{SerfinsaBackend_HostAddress}}/api/tareas?estado=pendientes
 ###
 
 GET {{SerfinsaBackend_HostAddress}}/api/tareas?estado=completadas
+###
+
+@valor
+PATCH {{SerfinsaBackend_HostAddress}}/api/Tareas/{{valor}}/estado
+
+###
