@@ -1,4 +1,4 @@
-export default function TareaItem({ tarea }) {
+export default function TareaItem({ tarea ,onToggle, onEliminar}) {
   return (
     //
  <li className={`tarea-item prioridad-${tarea.prioridad} ${tarea.completada ? "completada" : ""}`}>
@@ -9,7 +9,18 @@ export default function TareaItem({ tarea }) {
         </span>
       </div>
       <p className="tarea-desc">{tarea.descripcion}</p>
-      <span className="badge badge-prioridad">Prioridad: {tarea.prioridad}</span>
+        <div className="tarea-footer">
+          <span className="badge badge-prioridad">Prioridad: {tarea.prioridad}</span>   
+          <div className="tarea-acciones">
+  <button className="btn-completar" onClick={() => onToggle(tarea.id)}>
+    {tarea.completada ? "Marcar pendiente" : "Marcar completada"}
+  </button>
+  <button className="btn-eliminar" onClick={() => onEliminar(tarea.id)}>
+    Eliminar
+  </button>
+</div>
+        </div>
+     
     </li>
   );
 }

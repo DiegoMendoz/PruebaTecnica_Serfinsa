@@ -136,3 +136,14 @@ input, textarea, select {
 }
 .tarea-form h2 { margin: 0 0 4px; font-size: 1.1rem; color: var(--text); }
 .form-error { color: #ffb3b3; margin: 0; font-size: 0.85rem; }
+
+/* Más separación entre tarjetas y en las acciones */
+.tarea-list { gap: 16px; }
+.tarea-footer { margin-top: 12px; gap: 12px; }
+.tarea-acciones { gap: 12px; }
+
+/* Botón completar = verde, eliminar = rojo */
+.btn-completar { background: #3FA34D; }
+.btn-completar:hover { background: #35893F; }
+.btn-eliminar { background: #E5484D; }
+.btn-eliminar:hover { background: #C73B40; }
