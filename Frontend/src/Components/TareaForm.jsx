@@ -7,10 +7,7 @@ export default function TareaForm({ onTareaCreada }) {
   const [form, setForm] = useState(inicial);
   const [error, setError] = useState(null);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
-  };
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,9 +17,9 @@ export default function TareaForm({ onTareaCreada }) {
     }
     try {
       await crearTarea(form);
-      setForm(inicial);      // limpia el formulario
+      setForm(inicial);
       setError(null);
-      onTareaCreada();       // avisa a App para recargar la lista
+      onTareaCreada();
     } catch (err) {
       setError(err.message);
     }

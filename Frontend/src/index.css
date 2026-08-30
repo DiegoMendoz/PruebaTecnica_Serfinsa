@@ -147,3 +147,7 @@ input, textarea, select {
 .btn-completar:hover { background: #35893F; }
 .btn-eliminar { background: #E5484D; }
 .btn-eliminar:hover { background: #C73B40; }
+
+.filtro { display: flex; gap: 8px; margin-bottom: 16px; justify-content: center; }
+.filtro-btn { background: transparent; border: 1px solid var(--seagrass); }
+.filtro-btn.activo { background: var(--seagrass); }
