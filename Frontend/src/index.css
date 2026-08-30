@@ -122,3 +122,17 @@ input, textarea, select {
 .prioridad-Alta  .badge-prioridad { background: #E5484D; color: #fff; }
 .prioridad-Media .badge-prioridad { background: var(--yellow-green); color: var(--charcoal); }
 .prioridad-Baja  .badge-prioridad { background: var(--seagrass); color: #fff; }
+
+/* FORAMTO PARA CREACION DE TAREAS*/
+.tarea-form {
+  display: grid;
+  gap: 10px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.tarea-form h2 { margin: 0 0 4px; font-size: 1.1rem; color: var(--text); }
+.form-error { color: #ffb3b3; margin: 0; font-size: 0.85rem; }

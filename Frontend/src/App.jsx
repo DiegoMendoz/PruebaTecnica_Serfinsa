@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { listarTareas } from "./Api/tareasApi";
+import TareaForm from "./Components/TareaForm";
 import TareaList from "./Components/TareaList";
 
 export default function App() {
@@ -8,8 +9,7 @@ export default function App() {
 
   const cargarTareas = async () => {
     try {
-      const datos = await listarTareas();
-      setTareas(datos);
+      setTareas(await listarTareas());
       setError(null);
     } catch (e) {
       setError(e.message);
@@ -21,11 +21,10 @@ export default function App() {
   }, []);
 
   return (
-    <div style={{ maxWidth: 700, margin: "2rem auto", fontFamily: "sans-serif" }}>
+    <div className="container">
       <h1>Gestor de Tareas — Serfinsa</h1>
-      {error && (
-        <p style={{ color: "red" }}>Error: {error}. ¿Está corriendo el backend?</p>
-      )}
+      {error && <p style={{ color: "#ffb3b3" }}>Error: {error}. ¿Está corriendo el backend?</p>}
+      <TareaForm onTareaCreada={cargarTareas} />
       <TareaList tareas={tareas} />
     </div>
   );
